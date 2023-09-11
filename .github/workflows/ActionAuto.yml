@@ -31,7 +31,7 @@ jobs:
 
       - name: Pull code from GitHub
         run: |
-          cd /home/ubuntu/myapp  # Change to your server directory
+                        #cd /home/ubuntu/myapp  # Change to your server directory
           git pull origin master  # Change 'main' to your branch name
 
       - name: Build
