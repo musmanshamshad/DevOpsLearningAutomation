@@ -1,9 +1,9 @@
-name: My first automation
+name: My Deployment Workflow
 
 on:
   push:
     branches:
-      - master  # Change this to your main branch name
+      - master  # Change to your main branch name
 
 jobs:
   deploy:
@@ -30,10 +30,9 @@ jobs:
         host: 3.108.61.251
         username: ubuntu
         key: ${{ secrets.MYSECRETKEY }}
-          
 
         script: |
           cd /home/ubuntu/projectusman
-          git pull
+          git pull origin master  # Pull changes from the 'master' branch
           npm install --only=production  # Install production dependencies on the server
           pm2 restart your-app  # Restart your app using PM2 or another process manager
