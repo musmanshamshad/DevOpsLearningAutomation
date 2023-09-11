@@ -24,9 +24,6 @@ jobs:
     - name: Build
       run: npm run build  # Or yarn build
 
-    - name: Ensure 'build' directory exists
-      run: mkdir -p ~/projectusman/build
-
     - name: Deploy to Server
       uses: appleboy/ssh-action@master
       with:
@@ -35,8 +32,9 @@ jobs:
         key: ${{ secrets.MYSECRETKEY }}
 
         script: |
-          cd ~/projectusman
+          cd /home/ubuntu/projectusman
           git pull origin master  # Pull changes from the 'master' branch
-          cp -r /github/workspace/build/. ~/projectusman/build  # Copy the build artifacts to the 'build' directory
+          rm -rf build  # Remove the existing 'build' directory if it exists
+          cp -r /github/workspace/build .  # Copy the build artifacts to the current directory
           npm install --only=production  # Install production dependencies on the server
           # pm2 restart react  # Restart your app using PM2 or another process manager
