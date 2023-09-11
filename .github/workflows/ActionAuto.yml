@@ -24,7 +24,7 @@ jobs:
       - name: Set up SSH
         uses: appleboy/ssh-action@v0
         with:
-          host: 3.108.61.251
+          host: 13.126.26.168
           username: ubuntu
           key: ${{ secrets.MYSECRETKEY }}
           # Add any other SSH options if needed
