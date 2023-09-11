@@ -39,4 +39,6 @@ jobs:
 
       - name: Restart Server
         run: |
-          # Add commands to restart your server here
+          # Add actual commands to restart your server here
+          # For example:
+          # sudo systemctl restart your-service-name
