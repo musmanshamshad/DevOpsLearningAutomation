@@ -31,8 +31,11 @@ jobs:
 
       - name: Pull code from GitHub
         run: |
-          mkdir -p /home/ubuntu/autodep  # Change to your server directory
-          git pull origin master  # Change 'main' to your branch name
+        - name: Create directory if it doesn't exist
+          mkdir -p ~/autodep
+          cd ~/autodep
+          #mkdir -p /home/ubuntu/autodep  # Change to your server directory
+          #git pull origin master  # Change 'main' to your branch name
 
       - name: Build
         run: npm run build  # Adjust to your build script
