@@ -29,24 +29,7 @@ jobs:
       with:
         host: 3.108.61.251
         username: ubuntu
-        key: -----BEGIN OPENSSH PRIVATE KEY-----
-          b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAArQAAAAdzc2gtcn
-          NhAAAAAwEAAQAAAJcAzzzH5RrhhnsdO72XzGBZqCSJ+A03bYN46ddDBM4ud4T8u0GUguYp
-          Sp+xUyVs66wxQDW4KlM5P9QX06zcEzorrYQoJYZx4OgNqj+a+tWKcJyq/ECIiwDNQd8kRz
-          AoxJuCUvKx9jX6oX7LxfhovJevPmVV6x8QzorKHqEspL7lD8XX7wUmafs+NaB5+07/mYlp
-          ksn+VjgRAAACYAyLZVgMi2VYAAAAB3NzaC1yc2EAAACXAM88x+Ua4YZ7HTu9l8xgWagkif
-          gNN22DeOnXQwTOLneE/LtBlILmKUqfsVMlbOusMUA1uCpTOT/UF9Os3BM6K62EKCWGceDo
-          Dao/mvrVinCcqvxAiIsAzUHfJEcwKMSbglLysfY1+qF+y8X4aLyXrz5lVesfEM6Kyh6hLK
-          S+5Q/F1+8FJmn7PjWgeftO/5mJaZLJ/lY4EQAAAAMBAAEAAACWCk1hOph9gav5JhEkzLo1
-          etBmM3ikusMAbc+Pu1tsn/Byh/SYp3E9uEH8FMAVjBnBUQnan/AHNo8aqCE9x47qwPOC82
-          qdmqqukzoaKVrPtfPO2ZZTM99bKjCI6jmJcL8cqSmFYsrfqhRi1urx5K7iSdFLiQOYsBhj
-          YSMwLYnSsrgCyotFi89QDyPHiXzPzSuhgRWGylABAAAAS2Aiv/SCLspUGdLQ9atVtElLYy
-          NoZ2fzKOtAOVzt87QhRSVfE5z8kFURbScXj5n86z6KBMAikbCU5VC44TLlPi3890qOKwuy
-          GUk2GgAAAEwA6bKvsSWCb9a2V2OtlZjm668Ovv0C+Ua0eEH7+zFp74CZa8WTPz4K+b/M+a
-          ealgC0i3ae+RMCEBo0JVetB4fDUyD919ApPZDTmM+RAAAATADjA6edFko5+T0MmKRYOMuF
-          HS31O2GgiG5NX3NWn1fVsv4E2v2cfrhLzXOhQdUNN9wlsn1dC/qZxB9xXBLLawH9fFMBai
-          apN+troIEAAAAabXVzbWFuc2hhbXNoYWRAb3V0bG9vay5jb20BAgME
-          -----END OPENSSH PRIVATE KEY-----
+        key: SHA256:3+HsWAzmSrlOhuRY0PRX+p3/5fUDRioQyJMrdZjXcys
           
 
         script: |
