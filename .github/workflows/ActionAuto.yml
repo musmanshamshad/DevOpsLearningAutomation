@@ -29,7 +29,56 @@ jobs:
       with:
         host: 3.108.61.251
         username: ubuntu
-        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDhZh53OUNxv4g82m1WPJjL90SiPFyt/hCL6qIMRorE0XONKJ8UAruAMgbThoFbX5M4DnkWHOGYqWV9Xv30A9VNA3nscVSO53JRF3h7X8pJkLrBzIXFkTFhn39mqMnlgkSRDL61K+0iBd0fhHXNPpeb/hPt8OYNh/ndIOl78DKF2JKJDLPryOlVMqHhcLTO78fx3TxNSLbthaM2eBQCcbotKEiGuhhHRYRokE8VHheJvriYzT/PS7XGdnCyLgECDZhd0HAip0GX0Knwk5y9bHgFY8igvtLjQPAn9UUFtEWXrII+kboVdlyNhixq/6MUljbjY5hk3G/gx70Mi4DIMz8zm75jtVpIWsw5VZeD1m2TaLCObYjE2z6wfNAaSueUQzOO2TNC5xN1CrqaSWIMITQrXmyI/Ku+Ndd4cofP2EcPYiI7QghfCJXcEfGDUuwoGzbIuiAUHE4x+6GTD8AHToS9udZls04/zrq96ghEDvDmePmaPJL9duUn7SFXpRoUpeHOmThXepWCNoeGFx8e6OHNMNBktrwSSzZbZJ4GkTP7cD0KDwbfdYVV/k7kKC/o24PcMx4Zs/xoy9wrKLN7Zx84SE2aqysvMqXC1viNwgfms3fWi2H4MP4kntmxWYoVVnkGWeFEHS4xeH7UdwnU9Z5s7eIAXt0sANrESyv6A8Fv0w== your_email@example.com
+        key: -----BEGIN OPENSSH PRIVATE KEY-----
+          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
+          -----END OPENSSH PRIVATE KEY-----
+          
 
         script: |
           cd /home/ubuntu/projectusman
