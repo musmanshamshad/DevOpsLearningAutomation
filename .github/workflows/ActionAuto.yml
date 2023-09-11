@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: build-artifact
-        path: build  # Adjust this path to match the location of your build artifacts
+        path: usman/build  # Adjust this path to match the location of your build artifacts
 
     - name: Deploy to Server
       uses: appleboy/ssh-action@master
@@ -42,6 +42,6 @@ jobs:
           git pull origin main  # Pull changes from the 'main' branch (change if necessary)
 
           # Copy build artifacts from GitHub Actions workspace to the server directory
-          cp -r $GITHUB_WORKSPACE/build/* ./home/ubuntu/myfold
+          cp -r $usman/build/* ./home/ubuntu/myfold
 
           # Optionally, you can install production dependencies and restart your app here
