@@ -1,47 +1,44 @@
-name: My Deployment Workflow
+name: Deploy and Build
 
 on:
   push:
     branches:
-      - master  # Change to your main branch name
+      - master  # Adjust to your branch name
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 20  # Change to your desired Node.js version (e.g., Node.js 14)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14  # Adjust to your Node.js version
 
-    - name: Install dependencies
-      run: npm ci --only=production  # Install production dependencies
+      - name: Install dependencies
+        run: npm install  # Adjust to your build process, e.g., yarn install for Yarn
 
-    - name: Build
-      run: npm run build  # Or yarn build
+      - name: Set up SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: 3.108.61.251
+          username: ubuntu
+          key: ${{ secrets.MYSECRETKEY }}
+          # Add any other SSH options if needed
 
-    - name: Archive build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-artifact
-        path: usman/build  # Adjust this path to match the location of your build artifacts
+      - name: Pull code from GitHub
+        run: |
+          cd /home/ubuntu/autodep  # Change to your server directory
+          git pull origin master  # Change 'main' to your branch name
 
-    - name: Deploy to Server
-      uses: appleboy/ssh-action@master
-      with:
-        host: 3.108.61.251
-        username: ubuntu
-        key: ${{ secrets.MYSECRETKEY }}
+      - name: Build
+        run: npm run build  # Adjust to your build script
 
-        script: |
-          cd /home/ubuntu/newfolder
-          git pull origin main  # Pull changes from the 'main' branch (change if necessary)
+      - name: Restart Server
+        run: |
+          # Add commands to restart your server here
 
-          # Copy build artifacts from GitHub Actions workspace to the server directory
-          cp -r $usman/build/* ./home/ubuntu/myfold
-
-          # Optionally, you can install production dependencies and restart your app here
+# Add more steps as needed for your specific use case
