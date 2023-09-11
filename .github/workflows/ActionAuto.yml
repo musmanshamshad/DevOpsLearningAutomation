@@ -29,13 +29,13 @@ jobs:
           key: ${{ secrets.MYSECRETKEY }}
           # Add any other SSH options if needed
 
-      - name: Pull code from GitHub
-        run: |
-          cd /home/ubuntu/autodep  # Change to your server directory
-          git pull origin master  # Change 'main' to your branch name
+        - name: Pull code from GitHub
+          run: |
+            cd /home/ubuntu/autodep  # Change to your server directory
+            git pull origin master  # Change 'main' to your branch name
 
-      - name: Build
-        run: npm run build  # Adjust to your build script
+        - name: Build
+          run: npm run build  # Adjust to your build script
 
       - name: Restart Server
         run: |
