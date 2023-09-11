@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14  # Adjust to your Node.js version
+          node-version: 20  # Adjust to your Node.js version
 
       - name: Install dependencies
         run: npm install  # Adjust to your build process, e.g., yarn install for Yarn
@@ -29,13 +29,13 @@ jobs:
           key: ${{ secrets.MYSECRETKEY }}
           # Add any other SSH options if needed
 
-      - name: Pull code from GitHub
-        run: |
-          cd /home/ubuntu/autodep  # Change to your server directory
-          git pull origin master  # Change 'main' to your branch name
+          -name: Pull code from GitHub
+          run: |
+              cd /home/ubuntu/autodep  # Change to your server directory
+              git pull origin master  # Change 'main' to your branch name
 
-      - name: Build
-        run: npm run build  # Adjust to your build script
+           -name: Build
+          run: npm run build  # Adjust to your build script
 
       - name: Restart Server
         run: |
