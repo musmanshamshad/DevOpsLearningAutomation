@@ -1,40 +1,29 @@
-name: Deploy and Build
-
-on:
-  push:
-    branches:
-      - master  # Adjust to your branch name
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 20  # Adjust to your Node.js version
-
-      - name: Install dependencies
-        run: npm install  # Adjust to your build process, e.g., yarn install for Yarn
-
-      - name: Set up SSH
-        uses: appleboy/ssh-action@master
-        with:
-          host: 3.108.61.251
-          username: ubuntu
-          key: ${{ secrets.MYSECRETKEY }}
-          # Add any other SSH options if needed
-          run: |
-            cd /home/ubuntu/autodep  # Change to your server directory
-            git pull origin master  # Change 'main' to your branch name 
-            npm run build  # Adjust to your build script
-
-      - name: Restart Server
-        run: |
-          # Add commands to restart your server here
-
-# Add more steps as needed for your specific use ca
+---
+  name: Deploy and Build
+  on:
+    push:
+      branches:
+        - master
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Set up Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: 20
+        - name: Install dependencies
+          run: npm install
+        - name: Set up SSH
+          uses: appleboy/ssh-action@master
+          with:
+            host: 3.108.61.251
+            username: ubuntu
+            key: ${{ secrets.MYSECRETKEY }}
+            run: |
+              cd /home/ubuntu/autodep  # Change to your server directory
+              git pull origin master  # Change 'main' to your branch name
+              npm run build  # Adjust to your build script
+  
