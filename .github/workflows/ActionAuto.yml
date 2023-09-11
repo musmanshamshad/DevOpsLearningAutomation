@@ -31,7 +31,7 @@ jobs:
 
       - name: Pull code from GitHub
         run: |
-          sudo mkdir -p /home/ubuntu/autodep  # Change to your server directory
+          sudo mkdir -p /first/myappone  # Change to your server directory
           git pull origin master  # Change 'main' to your branch name
 
       - name: Build
