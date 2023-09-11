@@ -3,7 +3,7 @@ name: My first automation
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - master  # Change this to your main branch name
 
 jobs:
   deploy:
@@ -27,7 +27,7 @@ jobs:
     - name: Deploy to Server
       uses: appleboy/ssh-action@master
       with:
-        host: 3.108.66.52
+        host: 3.108.61.251
         username: ubuntu
         key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDhZh53OUNxv4g82m1WPJjL90SiPFyt/hCL6qIMRorE0XONKJ8UAruAMgbThoFbX5M4DnkWHOGYqWV9Xv30A9VNA3nscVSO53JRF3h7X8pJkLrBzIXFkTFhn39mqMnlgkSRDL61K+0iBd0fhHXNPpeb/hPt8OYNh/ndIOl78DKF2JKJDLPryOlVMqHhcLTO78fx3TxNSLbthaM2eBQCcbotKEiGuhhHRYRokE8VHheJvriYzT/PS7XGdnCyLgECDZhd0HAip0GX0Knwk5y9bHgFY8igvtLjQPAn9UUFtEWXrII+kboVdlyNhixq/6MUljbjY5hk3G/gx70Mi4DIMz8zm75jtVpIWsw5VZeD1m2TaLCObYjE2z6wfNAaSueUQzOO2TNC5xN1CrqaSWIMITQrXmyI/Ku+Ndd4cofP2EcPYiI7QghfCJXcEfGDUuwoGzbIuiAUHE4x+6GTD8AHToS9udZls04/zrq96ghEDvDmePmaPJL9duUn7SFXpRoUpeHOmThXepWCNoeGFx8e6OHNMNBktrwSSzZbZJ4GkTP7cD0KDwbfdYVV/k7kKC/o24PcMx4Zs/xoy9wrKLN7Zx84SE2aqysvMqXC1viNwgfms3fWi2H4MP4kntmxWYoVVnkGWeFEHS4xeH7UdwnU9Z5s7eIAXt0sANrESyv6A8Fv0w== your_email@example.com
 
