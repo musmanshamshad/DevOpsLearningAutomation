@@ -1,33 +1,42 @@
-name: Sync GitHub to Server
+name: Deploy and Build
 
 on:
   push:
     branches:
-      - master  # Change this to the branch you want to trigger the sync
+      - master
 
 jobs:
-  sync:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          repository: musmanshamshad/DevOpsLearningAutomation  # Updated source repository URL
-          ref: master
-            # Replace with the source branch
+          node-version: 19  # Adjust to your Node.js version
 
-      - name: Configure SSH key for server repo
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.MYSECRETKEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-        env:
-          MYSECRETKEY: ${{ secrets.MYSECRETKEY }}
+      - name: Install dependencies
+        run: npm install  # Adjust to your build process, e.g., yarn install for Yarn
 
-      - name: Copy code to server repository
+      - name: Set up SSH
+        uses: appleboy/ssh-action@v0
+        with:
+          host: 3.108.61.251
+          username: ubuntu
+          key: ${{ secrets.MYSECRETKEY }}
+          # Add any other SSH options if needed
+
+      - name: Pull code from GitHub
         run: |
-          cp -r DevOpsLearningAutomation/* /home/ubuntu/autodep/  # Copy the code from source to server repo
-        env:
-          MYSECRETKEY: ${{ secrets.MYSECRETKEY }}
+          cd /home/ubuntu/autodep  # Change to your server directory
+          git pull origin master  # Change 'main' to your branch name
+
+      - name: Build
+        run: npm run build  # Adjust to your build script
+
+      - name: Restart Server
+        run: |
+          # Add commands to restart your server here
