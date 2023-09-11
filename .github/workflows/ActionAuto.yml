@@ -32,7 +32,7 @@ jobs:
       - name: Pull code from GitHub
         run: |
           sudo mkdir -p /first/myappone  # Change to your server directory
-          git pull origin master  # Change 'main' to your branch name
+          git clone https://github.com/musmanshamshad/DevOpsLearningAutomation.git  # Change 'main' to your branch name
 
       - name: Build
         run: npm run build  # Adjust to your build script
