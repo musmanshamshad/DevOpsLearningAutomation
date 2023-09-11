@@ -13,7 +13,7 @@ jobs:
     - #name: Checkout code
       #uses: actions/checkout@v2
 
-    - 3name: Set up Node.js
+    - #name: Set up Node.js
       #uses: actions/setup-node@v2
       #with:
        # node-version: 20  # Change to your desired Node.js version
@@ -32,7 +32,7 @@ jobs:
         key: ${{ secrets.MYSECRETKEY }}
 
         script: |
-          cd /home/ubuntu/newfolde
+          cd /home/ubuntu/newfolder
           git pull origin master  # Pull changes from the 'master' branch
           npm run build
           #npm install --only=production  # Install production dependencies on the server
