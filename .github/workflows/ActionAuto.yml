@@ -1,20 +1,33 @@
-name: Deploy to Server
+name: Sync GitHub to Server
 
 on:
   push:
     branches:
-      - master
+      - master  # Change this to the branch you want to trigger the sync
 
 jobs:
-  deploy:
+  sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v2
+        with:
+          repository: musmanshamshad/DevOpsLearningAutomation  # Updated source repository URL
+          ref: master
+            # Replace with the source branch
 
-      - name: Deploy code to server
+      - name: Configure SSH key for server repo
         run: |
-          ssh -i ${{ secrets.MYSECRETKEY }} ubuntu@3.108.61.251 "cd /home/ubuntu/autodep && git pull origin master"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.MYSECRETKEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
         env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+          MYSECRETKEY: ${{ secrets.MYSECRETKEY }}
+
+      - name: Copy code to server repository
+        run: |
+          cp -r DevOpsLearningAutomation/* /home/ubuntu/autodep/  # Copy the code from source to server repo
+        env:
+          MYSECRETKEY: ${{ secrets.MYSECRETKEY }}
