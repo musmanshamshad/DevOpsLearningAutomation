@@ -19,7 +19,7 @@ jobs:
         node-version: 14  # Change to your desired Node.js version
 
     - name: Install dependencies
-      run: npm ci --only=production install  # Install production dependencies
+      run: npm ci --only=production  # Install production dependencies
 
     - name: Build
       run: npm run build  # Or yarn build
@@ -38,7 +38,7 @@ jobs:
         key: ${{ secrets.MYSECRETKEY }}
 
         script: |
-          cd /home/ubuntu/newfolde
+          cd /home/ubuntu/newfolder
           git pull origin master  # Pull changes from the 'master' branch
           # Optionally, you can install production dependencies and restart your app here
 
