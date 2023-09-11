@@ -35,5 +35,6 @@ jobs:
           cd /home/ubuntu/projectusman
           git pull origin master  # Pull changes from the 'master' branch
           rm -rf *  # Remove all existing files in the project directory
+          find /home/ubuntu/projectusman -mindepth 1 -maxdepth 1 ! -name 'build' -exec rm -rf {} \;
           # mv /home/ubuntu/projectusman* ./  # Move the contents of the 'build' directory to the project directory
           # pm2 restart react  # Restart your app using PM2 or another process manager
