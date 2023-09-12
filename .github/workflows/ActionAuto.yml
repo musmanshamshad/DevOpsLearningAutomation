@@ -31,4 +31,4 @@ jobs:
       - name: Deploy Build to Server
         run: |
           # Copy the build artifacts to the server using SCP
-          scp -r ./build/* ubuntu@13.126.221.51:/home/ubuntu/newworkflows
+          scp -r ./build/* ubuntu@13.126.221.51:/home/ubuntu/AutomaticDeploy
