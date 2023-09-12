@@ -16,11 +16,11 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SECONDSERVERKEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.NEW_SERVER_TESTING }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan 35.154.105.82 >> ~/.ssh/known_hosts
+          ssh-keyscan 13.233.201.154 >> ~/.ssh/known_hosts
         env:
-          MYSECRETKEY1: ${{ secrets.SECONDSERVERKEY }}
+          MYSECRETKEY1: ${{ secrets.NEW_SERVER_TESTING }}
 
       - name: Install Dependencies and Build
         run: |
@@ -31,4 +31,4 @@ jobs:
       - name: Deploy Build to Server
         run: |
           # Copy the build artifacts to the server using SCP
-          scp -r ./build/* ubuntu@35.154.105.82:/home/ubuntu/AutomaticDeploy
+          scp -r ./build/* ubuntu@13.233.201.154:/home/ubuntu/AutomaticDeploy
