@@ -18,7 +18,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.MYSECRETKEY1 }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan 13.126.221.51 >> ~/.ssh/known_hosts
+          ssh-keyscan 35.154.105.82 >> ~/.ssh/known_hosts
         env:
           MYSECRETKEY1: ${{ secrets.MYSECRETKEY1 }}
 
@@ -31,4 +31,4 @@ jobs:
       - name: Deploy Build to Server
         run: |
           # Copy the build artifacts to the server using SCP
-          scp -r ./build/* ubuntu@13.126.221.51:/home/ubuntu/AutomaticDeploy
+          scp -r ./build/* ubuntu@35.154.105.82:/home/ubuntu/AutomaticDeploy
