@@ -16,11 +16,11 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.MYSECRETKEY1 }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SECONDSERVERKEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan 35.154.105.82 >> ~/.ssh/known_hosts
         env:
-          MYSECRETKEY1: ${{ secrets.MYSECRETKEY1 }}
+          MYSECRETKEY1: ${{ secrets.SECONDSERVERKEY }}
 
       - name: Install Dependencies and Build
         run: |
