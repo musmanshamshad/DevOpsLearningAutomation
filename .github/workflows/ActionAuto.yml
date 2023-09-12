@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy Build to Server
 
 on:
   push:
@@ -22,12 +22,7 @@ jobs:
         env:
           MYSECRETKEY: ${{ secrets.MYSECRETKEY }}
 
-      - name: Build
-        run: |
-          # Add your build commands here (e.g., npm install, npm build, etc.)
-          # This step generates the build artifacts in the GitHub Actions workspace
-
-      - name: Deploy
+      - name: Deploy Build
         run: |
           # Copy the build artifacts to the server using SCP
-          scp -r * ubuntu@13.126.221.51:/home/ubuntu/newworkflow
+          scp -r ./path/to/your/build/* ubuntu@13.126.221.51:/home/ubuntu/newworkflow
